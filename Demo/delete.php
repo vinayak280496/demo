@@ -1,5 +1,6 @@
 <?php  
  include 'conn.php'; 
+ include 'pagination.php';
  if(!empty($_POST))  
  {  
       $output = '';  

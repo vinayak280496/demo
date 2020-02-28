@@ -22,6 +22,7 @@
           <h4 align="center">Employee List</h4>
                <div id="employee_table">  
                <table class="table table-striped">
+                <div id="pagination_data"> 
                          <tr>  
                          <th width="70%">Employee Name</th>
                          <th width="10%" class="text-center">Edit</th>
@@ -179,6 +180,25 @@
         }
     });
 });
+
+ $(document).ready(function(){  
+      load_data();  
+      function load_data(page)  
+      {  
+           $.ajax({  
+                url:"pagination.php",  
+                method:"POST",  
+                data:{page:page},  
+                success:function(data){  
+                     $('#employee_table').html(data);  
+                }  
+           })  
+      }  
+      $(document).on('click', '.pagination_link', function(){  
+           var page = $(this).attr("id");  
+           load_data(page);  
+      });  
+ });  
 
  </script> 
 </body>  

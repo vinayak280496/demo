@@ -5,10 +5,10 @@ if (isset($_POST["employee_id"])) {
     $query  = "SELECT * FROM emp_data WHERE id = '" . $_POST["employee_id"] . "'";
     $result = mysqli_query($connect, $query);
     $output .= '  
-      <div class="table-responsive">  
-           <table class="table table-striped">';
+       <table class="table table-bordered"> ';
     while ($row = mysqli_fetch_array($result)) {
         $output .= '  
+        
                 <tr>  
                      <td width="30%"><label>Name</label></td>  
                      <td width="70%">' . $row["name"] . '</td>  
